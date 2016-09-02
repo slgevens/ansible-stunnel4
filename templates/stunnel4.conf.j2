@@ -31,7 +31,7 @@ output = /stunnel.log{% endif %}
 {% if stunnel_cert is defined %}cert = {{ stunnel_cert }}{% endif %}
 
 ; CLIENTS 
-{% if stunnel_client is defiend %}client = {{ stunnel_client }}{% endif %}
+{% if stunnel_client is defined %}client = {{ stunnel_client }}{% endif %}
 
 ; SERVICES
 {% for s in stunnel_services %}
