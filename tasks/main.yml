@@ -6,7 +6,7 @@
   apt: name={{ item }} state=present
 
 - name: Configure stunnel4
-  template: src=stunnel4.conf.j2 dest=/etc/stunnel4/stunnel4.conf
+  template: src=stunnel4.conf.j2 dest=/etc/stunnel/stunnel.conf
 
 - name: Stop stunnel4
   notify:
