@@ -13,5 +13,8 @@ galaxy_info:
       - all
     categories:
       - system
-dependencies: []
+      - monitoring
+      - security
+      - ssl
+  dependencies: []
 ...
