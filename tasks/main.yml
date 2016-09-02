@@ -1,0 +1,20 @@
+---
+- name: Install stunnel4
+  with_items:
+    - stunnel4
+
+  apt: name={{ item }} state=present
+
+- name: Configure stunnel4
+  template: src=stunnel4.conf.j2 dest=/etc/stunnel4/stunnel4.conf
+
+- name: Stop stunnel4
+  notify:
+    - stop stunnel4
+  service: name=stunnel4 state=stopped
+  
+- name: Enable and start stunnel4
+  notify:
+    - start stunnel4
+  service: name=stunnel4 enabled=yes state=started 
+  

@@ -1,0 +1,8 @@
+---
+- name: start stunnel4
+  service: name=stunnel4 state=started
+
+- name: stop stunnel4
+  service: name=stunnel4 state=stopped
+  
+...
