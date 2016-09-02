@@ -13,6 +13,5 @@ galaxy_info:
       - all
     categories:
       - system
-      - security
 dependencies: []
 ...
