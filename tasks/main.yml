@@ -9,8 +9,6 @@
   template: src=stunnel4.conf.j2 dest=/etc/stunnel/stunnel.conf
 
 - name: Stop stunnel4
-  notify:
-    - stop stunnel4
   service: name=stunnel4 state=stopped
   
 - name: Enable and start stunnel4
