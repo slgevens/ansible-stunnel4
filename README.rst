@@ -24,7 +24,7 @@ Example Playbook
    
    stunnel_cert: /etc/stunnel/stunnel.pem
    
-   #stunnel_client: 'yes'
+   stunnel_client: 'yes'
    
    stunnel_services:
      - { name: test, accept: '192.168.2.2:565' connect: '127.0.0.1:444' }
