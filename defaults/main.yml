@@ -1,6 +1,6 @@
 ---
 
-stunnel_chroot: /var/lib/stunnel4/
+#stunnel_chroot: /var/lib/stunnel4/
 
 stunnel_uid: stunnel4
 stunnel_gid: stunnel4
