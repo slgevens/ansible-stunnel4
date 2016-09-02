@@ -35,7 +35,7 @@ output = /stunnel.log{% endif %}
 
 ; SERVICES
 {% for s in stunnel_services %}
-[{{service.name}}]
-accept = {{service.accept}}
-connect= {{service.connect}}
+[{{s.name}}]
+accept = {{s.accept}}
+connect= {{s.connect}}
 {% endfor %}
