@@ -15,7 +15,5 @@
   service: name=stunnel4 state=stopped
   
 - name: Start stunnel4
-  notify:
-    - start stunnel4
   service: name=stunnel4 enabled=yes state=started 
   
