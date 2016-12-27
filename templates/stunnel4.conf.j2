@@ -30,12 +30,10 @@ output = /stunnel.log{% endif %}
 ; CERTS
 {% if stunnel_cert is defined %}cert = {{ stunnel_cert }}{% endif %}
 
-; CLIENTS 
-{% if stunnel_client is defined %}client = {{ stunnel_client }}{% endif %}
-
 ; SERVICES
 {% for s in stunnel_services %}
 [{{s.name}}]
-accept = {{s.accept}}
-connect= {{s.connect}}
+accept  = {{ s.accept }}
+connect = {{ s.connect }}
+client  = {{ s.client }}
 {% endfor %}
