@@ -1,0 +1,43 @@
+;{{ ansible_managed }}
+; DO NOT EDIT MANUALLY
+
+; CHROOT OPTION
+{% if stunnel_chroot is defined %}
+chroot = {{ stunnel_chroot }}
+{% else %}{% endif %}
+
+; UID & GIG
+setuid = {{ stunnel_uid }}
+setgid = {{ stunnel_gid }}
+
+; PID
+pid    = {{ stunnel_pid }}
+
+; DELAY (DNS)
+{% if stunnel_delay is defined %}
+delay  = {{ stunnel_delay }}
+{% else %}
+delay  = no
+{% endif %}
+
+; DEBUGGING
+{% if stunnel_log %}
+log    = append
+debug  = 7
+output = /stunnel.log
+{% else %}
+{% endif %}
+
+; CERTS
+{% if stunnel_cert is defined %}
+cert = {{ stunnel_cert }}
+{% else %}
+{% endif %}
+
+; SERVICES
+[{{ stunnel_service_name }}]
+accept  = {{ stunnel_service_accept }}
+connect = {{ stunnel_service_connect }}
+{% if stunnel_service_client is defined %}
+client  = {{ stunnel_service_client }}
+{% else %}{% endif %}
