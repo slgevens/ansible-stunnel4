@@ -26,8 +26,11 @@ Example Playbook
    
    stunnel_client: 'yes'
    
-   stunnel_services:
-     - { name: test, accept: '192.168.2.2:565' connect: '127.0.0.1:444' }
+   stunnel_service_name: test
+   stunnel_service_accept: '192.168.2.2:565' 
+   stunnel_service_connect: '127.0.0.1:444' 
+   --- 
+   stunnel_service_client: 'yes' or 'no'
 
 License
 ============
