@@ -7,11 +7,17 @@ chroot = {{ stunnel_chroot }}
 {% else %}{% endif %}
 
 ; UID & GIG
+{% if stunnel_uid is defined %}
 setuid = {{ stunnel_uid }}
+{% else %}{% endif %}
+{% if stunnel_gid is defined %}
 setgid = {{ stunnel_gid }}
+{% else %}{% endif %}
 
 ; PID
+{% is stunnel_pid is defined %}
 pid    = {{ stunnel_pid }}
+{% else %}{% endif %}
 
 ; DELAY (DNS)
 {% if stunnel_delay is defined %}
