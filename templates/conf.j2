@@ -15,7 +15,7 @@ setgid = {{ stunnel_gid }}
 {% else %}{% endif %}
 
 ; PID
-{% is stunnel_pid is defined %}
+{% if stunnel_pid is defined %}
 pid    = {{ stunnel_pid }}
 {% else %}{% endif %}
 
