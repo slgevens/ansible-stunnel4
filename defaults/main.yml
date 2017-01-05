@@ -8,7 +8,6 @@ stunnel_gid: stunnel4
 
 stunnel_pid: /stunnel.pid
 
-stunnel_delay: 'no'
-
 stunnel_log: True
+
 ...

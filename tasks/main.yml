@@ -5,10 +5,10 @@
 
   apt: name={{ item }} state=present
 
-- name: Creating custom configuration for services
+- name: Configuring stunnel4
   template:
-    src="conf.j2"
-    dest="/etc/stunnel/{{ stunnel_service_name }}.conf"
+    src="stunnel4.conf.j2"
+    dest="/etc/stunnel/stunnel.conf"
     owner="{{ stunnel_owner }}"
     group="{{ stunnel_group }}"
     mode="0644"
@@ -20,5 +20,5 @@
   service: name=stunnel4 state=stopped
   
 - name: Starting stunnel4
-  service: name=stunnel4 state=started 
-  
+  service: name=stunnel4 state=started  
+...

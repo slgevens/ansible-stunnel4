@@ -1,0 +1,63 @@
+;{{ ansible_managed }}
+; DO NOT EDIT MANUALLY
+
+; Sample stunnel configuration file for Unix by Michal Trojnara 2002-2014
+; Some options used here may be inadequate for your particular configuration
+; This sample file does *not* represent stunnel.conf defaults
+; Please consult the manual for detailed description of available options
+
+; A copy of some devices and system files is needed within the chroot jail
+; Chroot conflicts with configuration file reload and many other features
+
+; CHROOT OPTIONS
+{% if stunnel_chroot is defined %}
+chroot = {{ stunnel_chroot }}
+{% else %}
+chroot = /var/lib/stunnel4/
+{% endif %}
+
+; UID & GIG
+setuid = {{ stunnel_uid }}
+setgid = {{ stunnel_gid }}
+
+; PID
+pid = {{ stunnel_pid }}
+
+; DELAY (DNS)
+{% if stunnel_delay is defined %}
+delay = {{ stunnel_delay }}
+{% else %}
+delay = no
+{% endif %}
+
+; DEBUGGING
+{% if stunnel_log is defined %}
+log = {{ stunnel_log }}
+{% else %}
+log = append
+{% endif %}
+{% if stunnel_log_debug_level is defined %}
+debug = {{ stunnel_log_debug_level }}
+{% else %}
+debug = 7
+{% endif %}
+{% if stunnel_log_output is defined %}
+output = {{ stunnel_log_output }}
+{% else %}
+output = /stunnel.log
+{% endif %}
+
+; CERTS
+{% if stunnel_cert is defined %}
+cert = {{ stunnel_cert }}
+{% else %}
+cert = /etc/stunnel/stunnel.pem
+{% endif %}
+
+; SERVICES
+{% for s in stunnel_services %}
+[{{s.name}}]
+accept  = {{s.accept}}
+connect = {{s.connect}}
+client  = {{s.client}}
+{% endfor %}
